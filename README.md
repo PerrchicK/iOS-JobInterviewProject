@@ -6,6 +6,7 @@ Google Maps:
 - Find places nearby (UI Markers)
 - Reverse geocoding (from coordinate to address)
 - Address search with autocomplete
+
 Other stuff:
 - Storyboard
 - Auto Layouts (constraints)
