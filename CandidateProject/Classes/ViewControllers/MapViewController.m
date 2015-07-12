@@ -13,11 +13,15 @@
 #import "Place.h"
 #import "Prediction.h"
 #import "PlaceInfoViewController.h"
+
+// From CocoaPods
 #import <GoogleMaps/GoogleMaps.h>
+#import "CMPopTipView.h"
 
 #define kDelayBeforeSearch 0.5
 // From: http://gis.stackexchange.com/questions/7430/what-ratio-scales-do-google-maps-zoom-levels-correspond-to
 #define kClosestZoomRatioScale 591657550.50
+#define UIColorFromHexaRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface MapViewController ()<CLLocationManagerDelegate, GMSMapViewDelegate, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, PlaceInfoViewControllerDelegate>
 
@@ -32,6 +36,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgSearchNearbyPlaces;
 @property (strong, nonatomic) IBOutlet UITableView *autocompleteResultsTableView;
 @property (strong, nonatomic) NSArray *autocompleteResults;
+
+@property (assign, nonatomic) BOOL isFirstLaunch;
+@property (strong, nonatomic) CMPopTipView *popTip;
 
 @property (strong, nonatomic) PlaceInfoViewController *placeInfoViewController;
 @property (strong, nonatomic) GMSPlacesClient *placesClient;
@@ -61,6 +68,7 @@
     self.mapView.delegate = self;
     self.isSearching = NO;
     self.isUpdatingAddress = NO;
+    self.isFirstLaunch = YES;
 
     self.placesClient = [[GMSPlacesClient alloc] init];
 
@@ -74,7 +82,22 @@
     [self.locationManager startUpdatingLocation];
     [self _moveCameraToCurrentLocation];
 
+    self.popTip = [[CMPopTipView alloc] init];
+
     [self _setAppearance];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    if (self.isFirstLaunch) {
+        self.popTip.has3DStyle = NO;
+        self.popTip.hasGradientBackground = NO;
+        self.popTip.backgroundColor = UIColorFromHexaRGB(0x009dff);
+        self.popTip.message = @"Use this slider to magnify / minify the radius of places nearby";
+        self.isFirstLaunch = NO;
+        [self.popTip presentPointingAtView:self.radiusSlider inView:self.view animated:YES];
+    }
 }
 
 #pragma mark - CLLocationManager delegate methods
@@ -225,7 +248,7 @@
 }
 
 -(void)_moveCameraToCurrentLocation {
-    [self _moveCameraToLocation:self.currentLocation.coordinate andZoom:12.0];
+    [self _moveCameraToLocation:self.currentLocation.coordinate andZoom:15.0];
 }
 
 -(void)_moveCameraToLocation:(CLLocationCoordinate2D)coordinate andZoom:(float)zoomValue {

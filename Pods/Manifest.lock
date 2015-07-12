@@ -1,10 +1,13 @@
 PODS:
+  - CMPopTipView (2.2.0)
   - GoogleMaps (1.10.1)
 
 DEPENDENCIES:
+  - CMPopTipView
   - GoogleMaps
 
 SPEC CHECKSUMS:
+  CMPopTipView: a0a88404b9f46a5cfc16ce54bdb1b9bf9acb9aff
   GoogleMaps: ebf08677f181d9c2dcdbd1721d206f02beccc9b1
 
 COCOAPODS: 0.37.2
