@@ -16,5 +16,6 @@ Other stuff:
 - Delegates
 - Blocks
 - Web requests
+- Categories
 
 Enjoy :P
