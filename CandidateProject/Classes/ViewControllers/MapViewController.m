@@ -43,6 +43,8 @@
 @property (strong, nonatomic) PlaceInfoViewController *placeInfoViewController;
 @property (strong, nonatomic) GMSPlacesClient *placesClient;
 
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
+
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) CLLocation *currentLocation;
 
@@ -71,6 +73,8 @@
     self.isFirstLaunch = YES;
 
     self.placesClient = [[GMSPlacesClient alloc] init];
+
+    self.loadingView.hidden = YES;
 
     self.locationManager = [CLLocationManager new];
     self.locationManager.delegate = self;
@@ -257,10 +261,13 @@
 }
 
 -(void)_presentPlaceInfoOfPlaceId:(NSString *)placeId {
+    self.loadingView.hidden = NO;
+
     typeof(self) __weak weakSelf = self;
     [self.placesClient lookUpPlaceID:placeId callback:^(GMSPlace *place, NSError *error){
         typeof(self) strongSelf = weakSelf;
         strongSelf.placeInfoViewController.place = place;
+        strongSelf.loadingView.hidden = YES;
         [strongSelf presentViewController:self.placeInfoViewController animated:YES completion:nil];
     }];
 }

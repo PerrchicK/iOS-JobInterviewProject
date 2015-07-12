@@ -79,7 +79,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(this place has no website)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DF-Ac-136" userLabel="lblNoWebsite">
                                 <rect key="frame" x="16" y="230" width="288" height="308"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1L4-Bk-Nxj">
@@ -268,6 +268,19 @@
                                     <outlet property="delegate" destination="rtQ-zQ-Sj1" id="eP3-yu-7v9"/>
                                 </connections>
                             </tableView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Thh-U0-97a">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="F9D-FB-yVf">
+                                        <rect key="frame" x="142" y="256" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="F9D-FB-yVf" secondAttribute="centerX" id="iCA-uz-glA"/>
+                                    <constraint firstAttribute="centerY" secondItem="F9D-FB-yVf" secondAttribute="centerY" id="o5D-I9-FaZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -289,12 +302,14 @@
                             <constraint firstItem="95f-4x-N21" firstAttribute="top" secondItem="soF-0B-zKd" secondAttribute="bottom" id="NL0-rr-eJN"/>
                             <constraint firstItem="soF-0B-zKd" firstAttribute="width" secondItem="q9w-YW-HsJ" secondAttribute="width" id="Nzh-wL-6iY"/>
                             <constraint firstItem="q9w-YW-HsJ" firstAttribute="leading" secondItem="hj0-ub-h3W" secondAttribute="leading" id="Ojk-ON-rWb"/>
+                            <constraint firstAttribute="trailing" secondItem="Thh-U0-97a" secondAttribute="trailing" id="VS0-ol-JKf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CMK-Nt-fo7" secondAttribute="trailing" id="W4z-az-lK9"/>
                             <constraint firstItem="lmg-EC-GRj" firstAttribute="leading" secondItem="hj0-ub-h3W" secondAttribute="leadingMargin" id="X28-va-KVL"/>
                             <constraint firstItem="q9w-YW-HsJ" firstAttribute="height" secondItem="95f-4x-N21" secondAttribute="height" id="XAa-ET-oTT"/>
                             <constraint firstItem="95f-4x-N21" firstAttribute="bottom" secondItem="q9w-YW-HsJ" secondAttribute="bottom" id="XF6-tZ-WOE"/>
                             <constraint firstItem="U1C-e4-tvK" firstAttribute="centerY" secondItem="iBx-Pj-upK" secondAttribute="centerY" id="YDK-VO-kyj"/>
                             <constraint firstItem="q9w-YW-HsJ" firstAttribute="centerY" secondItem="95f-4x-N21" secondAttribute="centerY" id="YMx-g3-GuG"/>
+                            <constraint firstItem="Thh-U0-97a" firstAttribute="top" secondItem="HSF-hN-z6q" secondAttribute="bottom" id="aqZ-Q7-s2s"/>
                             <constraint firstItem="qVD-62-NEL" firstAttribute="leading" secondItem="hj0-ub-h3W" secondAttribute="leading" id="b2Y-3o-HjY"/>
                             <constraint firstItem="q9w-YW-HsJ" firstAttribute="trailing" secondItem="hj0-ub-h3W" secondAttribute="trailing" id="bNx-0X-imR"/>
                             <constraint firstItem="lmg-EC-GRj" firstAttribute="trailing" secondItem="hj0-ub-h3W" secondAttribute="trailingMargin" id="beK-xL-BzY"/>
@@ -310,17 +325,19 @@
                             <constraint firstItem="soF-0B-zKd" firstAttribute="top" secondItem="q9w-YW-HsJ" secondAttribute="top" id="pku-Ty-ZzI"/>
                             <constraint firstItem="ZQa-6L-LL7" firstAttribute="bottom" secondItem="CMK-Nt-fo7" secondAttribute="top" id="q2i-Sp-57c"/>
                             <constraint firstItem="ZQa-6L-LL7" firstAttribute="leading" secondItem="hj0-ub-h3W" secondAttribute="leading" id="qHw-4U-ePP"/>
+                            <constraint firstItem="Thh-U0-97a" firstAttribute="leading" secondItem="hj0-ub-h3W" secondAttribute="leading" id="rS8-q2-XKJ"/>
+                            <constraint firstItem="kYv-BK-9g7" firstAttribute="top" secondItem="Thh-U0-97a" secondAttribute="bottom" id="rSV-Tm-UaL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="49M-ng-ZEk"/>
                                 <exclude reference="7KP-oO-oSt"/>
                                 <exclude reference="ILX-mU-wMb"/>
-                                <exclude reference="bef-id-mUN"/>
                                 <exclude reference="3t2-FV-huC"/>
                                 <exclude reference="XAa-ET-oTT"/>
                                 <exclude reference="YMx-g3-GuG"/>
                                 <exclude reference="pFt-4V-HgO"/>
+                                <exclude reference="bef-id-mUN"/>
                                 <exclude reference="3ID-eP-y5j"/>
                                 <exclude reference="D9a-oN-DiJ"/>
                                 <exclude reference="dWC-Br-4FA"/>
@@ -335,6 +352,7 @@
                         <outlet property="imgSearchNearbyPlaces" destination="U1C-e4-tvK" id="frJ-NS-0XD"/>
                         <outlet property="lblAddress" destination="CMK-Nt-fo7" id="co8-Xe-zGM"/>
                         <outlet property="lblPulse" destination="v2Y-oR-2zI" id="qEJ-Zr-Wnf"/>
+                        <outlet property="loadingView" destination="Thh-U0-97a" id="ifY-DX-me2"/>
                         <outlet property="mapView" destination="q9w-YW-HsJ" id="zhS-qY-pej"/>
                         <outlet property="radiusSlider" destination="wkW-ri-dN4" id="HbI-SG-vlc"/>
                         <outlet property="searchBar" destination="soF-0B-zKd" id="kwc-cX-AcQ"/>
