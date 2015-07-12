@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>012050A2-E278-4357-8847-D03759BFE43C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CandidateProject</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>37FF897FE4AF34127974FAEFBEB9F9675447DA2F</key>
+		<string>https://github.com/PerrchicK/JonInterviewProject.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CandidateProject.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>37FF897FE4AF34127974FAEFBEB9F9675447DA2F</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/PerrchicK/JonInterviewProject.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>37FF897FE4AF34127974FAEFBEB9F9675447DA2F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>37FF897FE4AF34127974FAEFBEB9F9675447DA2F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>JonInterviewProject</string>
+		</dict>
+	</array>
+</dict>
+</plist>
