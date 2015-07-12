@@ -10,7 +10,8 @@ Google Maps:
 Other stuff:
 - Storyboard
 - Auto Layouts (constraints)
-- CocoaPod
+- CocoaPods
+- Open source component
 - UIView animations
 - Delegates
 - Blocks
