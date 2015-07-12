@@ -1,13 +1,13 @@
 # CandidateProject
 This project is a candidates' home test that I decided to publish as a part of an interview I was in.
 
-Google Maps:
+Google Maps SDK:
 - Embedded map
 - Find places nearby (UI Markers)
 - Reverse geocoding (from coordinate to address)
 - Address search with autocomplete
 
-Other stuff:
+Other work with:
 - Storyboard
 - Auto Layouts (constraints)
 - CocoaPods
