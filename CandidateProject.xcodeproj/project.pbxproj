@@ -22,6 +22,7 @@
 		759092251B4EB40700C9096E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759092241B4EB40700C9096E /* Images.xcassets */; };
 		759092281B4EB40700C9096E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759092261B4EB40700C9096E /* LaunchScreen.xib */; };
 		759092341B4EB40700C9096E /* CandidateProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 759092331B4EB40700C9096E /* CandidateProjectTests.m */; };
+		75AA7D151B51EFAE00348E16 /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AA7D141B51EFAE00348E16 /* UIView+Extras.m */; };
 		75D7AE471B4EEE880082C569 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D7AE461B4EEE880082C569 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,9 @@
 		7590922D1B4EB40700C9096E /* CandidateProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandidateProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		759092321B4EB40700C9096E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		759092331B4EB40700C9096E /* CandidateProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CandidateProjectTests.m; sourceTree = "<group>"; };
+		75AA7D131B51EFAE00348E16 /* UIView+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extras.h"; sourceTree = "<group>"; };
+		75AA7D141B51EFAE00348E16 /* UIView+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extras.m"; sourceTree = "<group>"; };
+		75AA7D161B51F0AA00348E16 /* Project-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Project-Prefix.pch"; sourceTree = "<group>"; };
 		75D7AE441B4EEE2C0082C569 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		75D7AE461B4EEE880082C569 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -146,6 +150,7 @@
 		757AE10B1B4F1BCC0035E93B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				75AA7D121B51EFAE00348E16 /* Categories */,
 				756FE8591B4FDF2B001116AB /* ViewControllers */,
 				756FE8551B4FBCDE001116AB /* Logic */,
 				756FE84B1B4FB908001116AB /* Communication */,
@@ -203,6 +208,7 @@
 		759092111B4EB40700C9096E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				75AA7D161B51F0AA00348E16 /* Project-Prefix.pch */,
 				759092121B4EB40700C9096E /* Info.plist */,
 				759092131B4EB40700C9096E /* main.m */,
 			);
@@ -224,6 +230,15 @@
 				759092321B4EB40700C9096E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75AA7D121B51EFAE00348E16 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				75AA7D131B51EFAE00348E16 /* UIView+Extras.h */,
+				75AA7D141B51EFAE00348E16 /* UIView+Extras.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +383,7 @@
 				7582E5D61B512CA4007FE3B8 /* PlaceInfoViewController.m in Sources */,
 				759092171B4EB40700C9096E /* AppDelegate.m in Sources */,
 				756FE85E1B4FDF2B001116AB /* MapViewController.m in Sources */,
+				75AA7D151B51EFAE00348E16 /* UIView+Extras.m in Sources */,
 				756FE8581B4FBD01001116AB /* Place.m in Sources */,
 				759092141B4EB40700C9096E /* main.m in Sources */,
 				7542CD7B1B4FF42F00084E16 /* ViewAnimator.m in Sources */,
@@ -493,6 +509,7 @@
 			baseConfigurationReference = 6CB3C809D0DDE536C2D7D982 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "CandidateProject/Project-Prefix.pch";
 				INFOPLIST_FILE = CandidateProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -504,6 +521,7 @@
 			baseConfigurationReference = 6E67C195626FCBCB67EEB194 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "CandidateProject/Project-Prefix.pch";
 				INFOPLIST_FILE = CandidateProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
