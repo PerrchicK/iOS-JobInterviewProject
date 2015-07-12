@@ -32,8 +32,12 @@
     [super viewDidLoad];
 
     self.btnAddress.titleLabel.numberOfLines = 0;
+
+    self.webView.scalesPageToFit = YES;
     self.webView.layer.borderWidth = 1.0;
     self.webView.layer.borderColor = [UIColor blackColor].CGColor;
+    // Use category
+    [self.webView makeRoundCorners];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

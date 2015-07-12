@@ -21,7 +21,7 @@
 
 @interface MapViewController ()<CLLocationManagerDelegate, GMSMapViewDelegate, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, PlaceInfoViewControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel *lblCoordinate;
+@property (strong, nonatomic) IBOutlet UIButton *btnCurrentCoordinate;
 @property (strong, nonatomic) IBOutlet UILabel *lblAddress;
 @property (strong, nonatomic) IBOutlet UILabel *lblPulse;
 @property (nonatomic, strong) IBOutlet GMSMapView *mapView;
@@ -49,6 +49,7 @@
 - (IBAction)sliderValueChanged:(id)sender;
 - (IBAction)btnMoveToCurrentLocationPressed:(id)sender;
 - (IBAction)btnFindPlacesPressed:(id)sender;
+- (IBAction)btnCurrentCoordinatePressed:(id)sender;
 
 @end
 
@@ -203,6 +204,11 @@
     [self _searchPlacesInRadius];
 }
 
+- (IBAction)btnCurrentCoordinatePressed:(id)sender {
+    // Copy coordinate to clipboard
+    [[UIPasteboard generalPasteboard] setString:[self _coordinateAsString:self.mapView.camera.target]];
+}
+
 #pragma mark - Private methods
 
 -(void)_setAppearance {
@@ -212,7 +218,8 @@
 
     self.lblPulse.hidden = YES;
 
-    self.lblCoordinate.text = self.lblAddress.text = @"";
+    [self.btnCurrentCoordinate setTitle:@"" forState:UIControlStateNormal];
+    self.lblAddress.text = @"";
     self.searchToolHeightConstraint.constant *= 2;
     self.middleHeight = self.searchToolHeightConstraint.constant;
 }
@@ -303,8 +310,13 @@
     [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
 }
 
+-(NSString *)_coordinateAsString:(CLLocationCoordinate2D)locationCoordinate{
+    return [NSString stringWithFormat:@"%f,%f", locationCoordinate.latitude, locationCoordinate.longitude];
+}
+
 -(void)_setLocationText:(CLLocationCoordinate2D)locationCoordinate {
-    self.lblCoordinate.text = [NSString stringWithFormat:@"Current location: (%.4f,%.4f)", locationCoordinate.latitude, locationCoordinate.longitude];
+    NSString *currentLocationStr = [NSString stringWithFormat:@"Current location:(%@)", [self _coordinateAsString:locationCoordinate]];
+    [self.btnCurrentCoordinate setTitle:currentLocationStr forState:UIControlStateNormal];
 }
 
 -(void)_putPlacesOnMap:(NSArray *)placesArray {
