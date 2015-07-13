@@ -22,8 +22,9 @@
 // From: http://gis.stackexchange.com/questions/7430/what-ratio-scales-do-google-maps-zoom-levels-correspond-to
 #define kClosestZoomRatioScale 591657550.50
 #define UIColorFromHexaRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define kTagForActionSheetOptions 2000
 
-@interface MapViewController ()<CLLocationManagerDelegate, GMSMapViewDelegate, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, PlaceInfoViewControllerDelegate>
+@interface MapViewController ()<CLLocationManagerDelegate, GMSMapViewDelegate, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, PlaceInfoViewControllerDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *btnCurrentCoordinate;
 @property (strong, nonatomic) IBOutlet UILabel *lblAddress;
@@ -233,7 +234,7 @@
 
 - (IBAction)btnCurrentCoordinatePressed:(id)sender {
     // Copy coordinate to clipboard
-    [[UIPasteboard generalPasteboard] setString:[self _coordinateAsString:self.mapView.camera.target]];
+    [self _actionSheetWithOptions:@[@"Copy coordinate"] withTag:kTagForActionSheetOptions];
 }
 
 #pragma mark - Private methods
@@ -340,6 +341,17 @@
     [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
 }
 
+-(void)_actionSheetWithOptions:(NSArray *)options withTag:(NSInteger)tag {
+    UIActionSheet *actionSheet;
+    actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate: self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+    for (NSInteger i = 0; i < options.count; i++) {
+        [actionSheet addButtonWithTitle:options[i]];
+    }
+    
+    actionSheet.tag = tag;
+    [actionSheet showInView: self.view];
+}
+
 -(NSString *)_coordinateAsString:(CLLocationCoordinate2D)locationCoordinate{
     return [NSString stringWithFormat:@"%f,%f", locationCoordinate.latitude, locationCoordinate.longitude];
 }
@@ -367,6 +379,12 @@
     }
 
     return _placeInfoViewController;
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex > 0) {
+        [[UIPasteboard generalPasteboard] setString:[self _coordinateAsString:self.mapView.camera.target]];
+    }
 }
 
 @end
