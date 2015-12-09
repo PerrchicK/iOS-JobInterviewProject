@@ -19,3 +19,5 @@ Other work with:
 - Categories
 
 Enjoy :P
+
+![iOSHomeProject](https://dl.dropboxusercontent.com/u/23741087/MySharedFiles/gitHubPic-GettHomeExercise.png)
