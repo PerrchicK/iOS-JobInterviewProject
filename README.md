@@ -1,4 +1,4 @@
-# CandidateProject
+# iOS CandidateProject
 This is an iOS project, a candidates' home test that I decided to publish as a part of an interview I was in.
 
 Google Maps SDK:
