@@ -20,4 +20,4 @@ Other work with:
 
 Enjoy :P
 
-![iOSHomeProject](https://dl.dropboxusercontent.com/u/23741087/MySharedFiles/gitHubPic-GettHomeExercise.png)
+![iOSHomeTestProject](https://raw.githubusercontent.com/PerrchicK/iOS-JobInterviewProject/master/preview.png)
